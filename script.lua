@@ -62,11 +62,14 @@ update_done.on_click(function()
 	local body = "{"
 	    .. '"ip": "'
 	    .. update_ip.get_content()
+	    .. '",'
+	    .. '"key": "'
+	    .. update_key.get_content()
 	    .. '"'
 	    .. "}"
 
 	local res = fetch({
-		url = "http://127.0.0.1:3000/domain/" .. update_key.get_content(),
+		url = "http://127.0.0.1:3000/domain/update",
 		method = "PUT",
 		headers = { ["Content-Type"] = "application/json" },
 		body = body,
